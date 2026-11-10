@@ -55,8 +55,17 @@ Ask **one at a time**. Wait for each answer.
 | 2 can explain | Explains it correctly in their own words | Just name it; check only at high stakes |
 | 3 can decide | Weighs trade-offs and picks between options | Talk trade-offs as a peer; no checks |
 
-Grade only on what they said, never on what they claim ("I know APIs" without an
-explanation is level 1).
+**Having built something is not evidence of understanding it.** With AI, people ship
+apps whose parts they can't explain; that gap is what Brevin exists to close. So:
+
+- **Grade only explanations.** A concept moves to level 2 or 3 only when they explained
+  how it works (or weighed a trade-off) in their own words.
+- **Named but not explained → level 1 at most.** "A trading app with Postgres and a
+  websocket feed" puts databases and websockets at level 1, however impressive the app.
+- **Not mentioned → leave it out of the map.** Don't guess it from the kind of project.
+  It gets graded the first time it comes up in real work.
+- **Claims are not explanations.** "I know APIs" or "3 years of backend" set the tone of
+  how you talk to them, never a level.
 
 Save `~/.brevin/profile.md` (create `~/.brevin/` if needed) in this shape:
 
