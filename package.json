@@ -1,6 +1,6 @@
 {
   "name": "brevin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Understand what you build. A Claude Code and Codex skill that works with you, not around you.",
   "type": "module",
   "bin": {
