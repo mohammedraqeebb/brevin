@@ -36,8 +36,8 @@ words, and get as technical as you can, so I can match how I work to you."**
 Ask **one at a time**. Wait for each answer. Show only the question itself: no labels,
 no headings, and **no comments on their answers**.
 
-1. "What do you do, and how did you learn to make software: school, a job,
-   courses, mostly with AI, or are you just starting out?"
+1. "What do you do, and how did you get into making software? Which programming
+   languages have you written code in yourself, if any?"
 2. "What are the different projects you've built, and what does each
    one do? Start with the most recent."
    If they have built nothing yet, skip the third question and close the same way.
@@ -67,8 +67,9 @@ apps whose parts they can't explain; that gap is what Brevin exists to close. So
   websocket feed" puts databases and websockets at level 1, however impressive the app.
 - **Not mentioned → leave it out of the map.** Don't guess it from the kind of project.
   It gets graded the first time it comes up in real work.
-- **Claims are not explanations.** "I know APIs" or "3 years of backend" set the tone of
-  how you talk to them, never a level.
+- **Claims are not explanations.** "I know APIs", "3 years of backend" or a list of
+  languages set the tone of how you talk to them (e.g. show code in a language they've
+  written; explain syntax for one they haven't), never a level.
 
 Save `~/.brevin/profile.md` (create `~/.brevin/` if needed) in this shape:
 
