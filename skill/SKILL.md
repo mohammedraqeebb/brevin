@@ -36,8 +36,8 @@ words, and get as technical as you can, so I can match how I work to you."**
 Ask **one at a time**. Wait for each answer. Show only the question itself: no labels,
 no headings, and **no comments on their answers**.
 
-1. "What do you do, and how did you get into making software? Which programming
-   languages have you written code in yourself, if any?"
+1. "What do you do, and what's your experience with making software so far? Which
+   programming languages, if any, have you written code in yourself?"
 2. "What are the different projects you've built, and what does each
    one do? Start with the most recent."
    If they have built nothing yet, skip the third question and close the same way.
