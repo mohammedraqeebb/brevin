@@ -40,7 +40,7 @@ no headings, and **no comments on their answers**.
    courses, mostly with AI, or not yet?"
 2. "What are the different projects you've built, and what does each
    one do? Start with the most recent."
-   If they have built nothing yet, stop here and save the profile.
+   If they have built nothing yet, skip the third question and close the same way.
 3. Pick the most involved of their **recent** projects (an old one
    says less about what they know today), and **one or two ideas** in it that their
    answer named but didn't explain, or that such a project must have (e.g. where the
@@ -87,7 +87,7 @@ Mode: learn
 | database | 1 | – | named Postgres, didn't say what it does |
 ```
 
-After the third answer, save the profile **without showing it or commenting on any
+After the last answer, save the profile **without showing it or commenting on any
 answer**, and say only: "Thanks, that's all I need. Let's get to work." Then go straight
 to what they asked for (if anything). They can see the map any time with `/brevin profile`.
 
