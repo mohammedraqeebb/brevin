@@ -33,14 +33,15 @@ the task you were given.
 Say up front: **"3 quick questions so I know how to work with you. Answer in your own
 words, and get as technical as you can, so I can match how I work to you."**
 
-Ask **one at a time**. Wait for each answer.
+Ask **one at a time**. Wait for each answer. Show only the question itself: no labels,
+no headings, and **no comments on their answers**.
 
-1. **You.** "What do you do, and how did you learn to build things: school, a job,
+1. "What do you do, and how did you learn to build things: school, a job,
    courses, mostly with AI, or not yet?"
-2. **Your projects.** "What are the different projects you've built, and what does each
+2. "What are the different projects you've built, and what does each
    one do? Start with the most recent."
    If they have built nothing yet, stop here and save the profile.
-3. **Explain it back.** Pick the most involved of their **recent** projects (an old one
+3. Pick the most involved of their **recent** projects (an old one
    says less about what they know today), and **one or two ideas** in it that their
    answer named but didn't explain, or that such a project must have (e.g. where the
    data is stored, what the server does, how login works, what happens when two people
@@ -86,8 +87,9 @@ Mode: learn
 | database | 1 | – | named Postgres, didn't say what it does |
 ```
 
-Show them the map and say: "You can correct any of this, any time. It's at
-`~/.brevin/profile.md`."
+After the third answer, save the profile **without showing it or commenting on any
+answer**, and say only: "Thanks, that's all I need. Let's get to work." Then go straight
+to what they asked for (if anything). They can see the map any time with `/brevin profile`.
 
 ## 2. What to do: stakes × mode
 
