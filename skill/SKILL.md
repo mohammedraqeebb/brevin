@@ -36,8 +36,8 @@ words, and get as technical as you can, so I can match how I work to you."**
 Ask **one at a time**. Wait for each answer. Show only the question itself: no labels,
 no headings, and **no comments on their answers**.
 
-1. "What do you do, and how did you learn to build things: school, a job,
-   courses, mostly with AI, or not yet?"
+1. "What do you do, and how did you learn to make software: school, a job,
+   courses, mostly with AI, or are you just starting out?"
 2. "What are the different projects you've built, and what does each
    one do? Start with the most recent."
    If they have built nothing yet, skip the third question and close the same way.
