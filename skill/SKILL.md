@@ -37,9 +37,10 @@ Ask **one at a time**. Wait for each answer.
 1. **You.** "What do you do, and how did you learn to build things: school, a job,
    courses, mostly with AI, or not yet?"
 2. **Your projects.** "What are the different projects you've built, and what does each
-   one do?"
+   one do? Start with the most recent."
    If they have built nothing yet, stop here and save the profile.
-3. **Explain it back.** Pick the project that sounds most involved, and **one or two
+3. **Explain it back.** Pick the most involved of their **recent** projects (an old one
+   says less about what they know today), and **one or two
    ideas** in it that their answer named but didn't explain, or that such a project must
    have (e.g. where the data is stored, what the server does, how login works, what
    happens when two people act at once). Ask: "In ___, how does ___ work? In your own
