@@ -22,13 +22,14 @@ That's it. Brevin is on in every Claude Code and Codex session from now on.
   explains things to what you already know.
 - **Sorts work by stakes.** Chores (renames, formatting) just get done. Decisions that shape
   your app (logic, data, security, money) get talked through like a teammate would.
-- **Plans you can read.** Every plan has the same headings: Goal, Logic, Flow (a diagram of
-  how data moves), Math, Implementation (file, what changes, why, which model does it),
-  Edge cases, Trade-offs, and what users will see.
-- **Checks you followed.** Up to 3 questions about *this* plan, not trivia. Get them right
-  and it moves faster next time. Miss one and it explains again, differently. It never blocks.
-- **Saves tokens.** Decisions stay on the strongest model; searching, chores and diagrams go
-  to cheaper ones.
+- **Plans you can read.** Every big plan has the same headings: Goal, Logic, Flow (a diagram
+  of how data moves), Math, Implementation (file, what changes, why), Edge cases, Trade-offs,
+  and what users will see. Each one is saved to `docs/decisions/`, so you can find the logic
+  again a month later.
+- **Checks you followed.** Up to 3 questions per task that the plan doesn't answer for you:
+  what breaks if a step goes, a case it didn't list, the math with new numbers. Get them
+  right and it stops asking about that idea. Miss one and it explains again, differently.
+  It never blocks.
 
 ## Modes
 
@@ -36,22 +37,24 @@ That's it. Brevin is on in every Claude Code and Codex session from now on.
 |---|---|---|
 | **Learn** (default) | `/brevin learn` | The full loop: your take, the plan, check questions |
 | **Quick** | `/brevin quick` | The plan, then one question at the end |
-| **Outsource** | `/brevin outsource` or "just build" | No questions this session |
+| **Outsource** | `/brevin outsource` | No questions this session |
+
+Saying "skip" or "just build" skips the questions for that one task.
 
 ## Commands
 
 ```
 brevin off       switch Brevin off (your profile and log are kept)
 brevin on        switch it back on
-brevin status    what's installed, and whether it's on
+brevin status    whether it's on
+brevin report    this project's checks over the last 30 days
 brevin remove    undo everything install did
 ```
 
-## Privacy
+## Your files
 
-Everything stays on your computer, in `~/.brevin/`: a profile (what you know, with the
-evidence) and a log of check results. Plain text you can read, edit or delete. Nothing is
-sent anywhere.
+Brevin keeps a profile (what you know, with the evidence) and a log of check results in
+`~/.brevin/`. Plain text you can read, edit or delete.
 
 ---
 
