@@ -11,10 +11,12 @@ what you build.
 
 ```
 npm i -g brevin
-brevin install
 ```
 
-That's it. Brevin is on in every Claude Code and Codex session from now on.
+That's it. Brevin is on in every Claude Code and Codex session from now on. Open Claude Code
+in any project and say anything: the first time, Brevin starts by getting to know you.
+
+If your npm skips install scripts, run `brevin install` once.
 
 ## What it does
 

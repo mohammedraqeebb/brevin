@@ -6,6 +6,8 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawn } from "node:child_process";
+import readline from "node:readline";
 
 const HOME = os.homedir();
 const SCRIPT = fs.realpathSync(fileURLToPath(import.meta.url));
@@ -27,9 +29,23 @@ const CODEX_AGENTS = path.join(CODEX_DIR, "AGENTS.md");
 const BLOCK_START = "<!-- brevin:start -->";
 const BLOCK_END = "<!-- brevin:end -->";
 
+// Look a program up on PATH, the way the shell would.
+const onPath = (name) => {
+  for (const dir of (process.env.PATH ?? "").split(path.delimiter)) {
+    const p = path.join(dir, name);
+    try {
+      fs.accessSync(p, fs.constants.X_OK);
+      return p;
+    } catch {}
+  }
+  return null;
+};
+
 // Full paths, so the hook works even when `brevin` isn't on the hook's PATH (nvm, app launches).
-// `|| true` keeps Claude Code quiet if the script is later deleted by hand.
-const HOOK_COMMAND = `"${process.execPath}" "${SCRIPT}" hook session-start 2>/dev/null || true`;
+// Prefer node as found on PATH (e.g. /opt/homebrew/bin/node, which survives Node upgrades) over
+// the exact version folder Node is running from. `|| true` keeps Claude Code quiet if it breaks.
+const NODE = onPath("node") ?? process.execPath;
+const HOOK_COMMAND = `"${NODE}" "${SCRIPT}" hook session-start 2>/dev/null || true`;
 const isOurHook = (entry) =>
   entry?.hooks?.some((h) => typeof h.command === "string" && h.command.includes("brevin") && h.command.includes("hook session-start"));
 
@@ -180,8 +196,33 @@ const tools = () => "Claude Code" + (hasCodex() ? " or Codex" : "");
 function install() {
   console.log("\n  Brevin: understand what you build\n");
   switchOn();
-  console.log(`\n  Brevin is on. Open ${tools()} in any project and say hi.`);
+  console.log(`\n  Brevin is on in every ${tools()} session. Say anything and it starts.`);
   console.log("  Switch off: brevin off   ·   Undo everything: brevin remove\n");
+  offerToStart();
+}
+
+// Run by npm right after `npm i -g brevin`, so one command sets everything up.
+// Never fails the npm install: on any problem it says to run `brevin install` instead.
+function postinstall() {
+  if (process.env.npm_config_global !== "true") return;
+  try {
+    switchOn({ quiet: true });
+    console.log("Brevin is on. Open Claude Code in any project and say hi.");
+  } catch (err) {
+    console.log(`Brevin isn't set up yet (${err.message}). Run: brevin install`);
+  }
+}
+
+// Open Claude Code with a first "hi" already sent, so Brevin starts right away.
+function offerToStart() {
+  const claude = onPath("claude");
+  if (!claude || !process.stdin.isTTY || !process.stdout.isTTY) return;
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  rl.question("  Start now in this folder? (Y/n) ", (answer) => {
+    rl.close();
+    if (/^n/i.test(answer.trim())) return;
+    spawn(claude, ["hi"], { stdio: "inherit" }).on("exit", (code) => process.exit(code ?? 0));
+  });
 }
 
 function on() {
@@ -343,6 +384,7 @@ const [cmd, arg] = process.argv.slice(2);
 try {
   switch (cmd) {
     case "install": install(); break;
+    case "postinstall": postinstall(); break;
     case "on": on(); break;
     case "off": off(); break;
     case "status": status(); break;
@@ -353,7 +395,7 @@ try {
     default: help();
   }
 } catch (err) {
-  if (cmd === "hook") process.exit(0); // a hook must never break a Claude Code session
+  if (cmd === "hook" || cmd === "postinstall") process.exit(0); // a hook must never break a Claude Code session
   console.error(`\n  brevin: ${err.message}\n`);
   process.exit(1);
 }

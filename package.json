@@ -26,5 +26,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mohammedraqeebb/brevin.git"
+  },
+  "scripts": {
+    "postinstall": "node bin/brevin.js postinstall"
   }
 }
